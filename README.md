@@ -35,18 +35,24 @@ H1: the change increases the probability of students who continue the free trial
 Unit of Diversion (from Udacity): The unit of diversion is a cookie, although if the student enrolls in the free trial, they are tracked by user-id from that point forward. The same user-id cannot enroll in the free trial twice. For users that do not register, their user-id is not tracked in the experiment, even if they were signed in when they visited the course overview page.
 
 ### Experimental Design
-#####Metric Choice
-#####Invariant metrics
+
+##### Metric Choice
+
+##### Invariant metrics
+
 Invariant metrics are the ones used for sanity checks and will remain invariant throughout the experiment.
 - Number of cookies: That is, number of unique cookies to view the course overview page.
 - Number of clicks: That is, the number of unique cookies to click the “Start free trial” button (which happens before the free trial screener is a trigger).
 - Click-through-probability: That is, number of unique cookies to click the “Start free trial” button divided by number of unique cookies to view the course overview page.
-#####Evaluation Metrics
+
+##### Evaluation Metrics
 Evaluation metrics are the ones that we care about, the metrics that must be observed for consideration in the decision to launch the experiment.
 - Gross conversion: That is, the number of user-ids to complete checkout and enroll in the free trial divided by the number of unique cookies to click the “Start free trial” button. (dmin= 0.01)
 - Retention: That is, the number of user-ids to remain enrolled past the 14-day boundary (and thus make at least one payment) divided by number of user-ids to complete checkout. (dmin=0.01)
 - Net conversion: That is, number of user-ids to remain enrolled past the 14-day boundary (and thus make at least one payment) divided by the number of unique cookies to click the “Start free trial” button. (dmin= 0.0075)
+- 
 This graph below shows the process.
+
 ![image](https://user-images.githubusercontent.com/47337257/151720856-75e7e841-b22f-4ea5-952d-110a3aea779c.png)
 
 Based on the metrics we choose and the initial hypothesis, we can revise our hypothesis.
@@ -57,6 +63,7 @@ H0: Retention(control) = Retention(treatment)
 H1: Retention(control) != Retention(treatment)
 H0: Net Conversion(control) = Net Conversion(treatment)
 H1: Net Conversion(control) != Net Conversion(treatment)
+
 ## Reference
 
 Context https://medium.com/@zhouyuchen999/a-b-testing-experiment-a-udacity-course-project-f958f7236278
